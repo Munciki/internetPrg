@@ -1,0 +1,543 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Admin Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="bi bi-shield-lock me-2"></i>Ziyaretçi Admin Paneli
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="adminNavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/admin/dashboard">
+            <i class="bi bi-speedometer2 me-1"></i>Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/visitors">
+            <i class="bi bi-people me-1"></i>Ziyaretçiler
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/appointments">
+            <i class="bi bi-calendar-check me-1"></i>Randevular
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/reports">
+            <i class="bi bi-graph-up me-1"></i>Raporlar
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-gear me-1"></i>Ayarlar
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/admin/users">Kullanıcı Yönetimi</a></li>
+            <li><a class="dropdown-item" href="/admin/departments">Departmanlar</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/admin/settings">Sistem Ayarları</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown">
+            <img src="https://via.placeholder.com/40" alt="Admin" width="32" height="32" class="rounded-circle me-2">
+            <span class="d-none d-sm-inline">Admin User</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="/admin/profile"><i class="bi bi-person me-2"></i>Profil</a></li>
+            <li><a class="dropdown-item" href="/admin/notifications"><i class="bi bi-bell me-2"></i>Bildirimler <span class="badge bg-danger ms-2">3</span></a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout"><i class="bi bi-box-arrow-right me-2"></i>Çıkış Yap</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Admin Content -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <div class="sidebar-search mb-3 px-3">
+          <div class="input-group">
+            <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control" placeholder="Ara...">
+          </div>
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="/admin/dashboard">
+              <i class="bi bi-speedometer2 me-2"></i>Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/visitors">
+              <i class="bi bi-people me-2"></i>Ziyaretçiler
+              <span class="badge bg-primary rounded-pill ms-2">24</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/visits">
+              <i class="bi bi-door-open me-2"></i>Ziyaretler
+              <span class="badge bg-success rounded-pill ms-2">56</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/appointments">
+              <i class="bi bi-calendar-check me-2"></i>Randevular
+              <span class="badge bg-warning rounded-pill ms-2">12</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/blacklist">
+              <i class="bi bi-person-x me-2"></i>Kara Liste
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/reports">
+              <i class="bi bi-graph-up me-2"></i>Raporlar
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/checkin">
+              <i class="bi bi-qr-code-scan me-2"></i>Check-in
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading px-3 mt-4 mb-1 text-muted">Ayarlar</h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/users">
+              <i class="bi bi-person-gear me-2"></i>Kullanıcılar
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/departments">
+              <i class="bi bi-building me-2"></i>Departmanlar
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/settings">
+              <i class="bi bi-gear me-2"></i>Sistem Ayarları
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+      <!-- Dashboard Header -->
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2 fw-bold">
+          <i class="bi bi-speedometer2 me-2"></i>Admin Dashboard
+        </h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-download me-1"></i>Export
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">
+              <i class="bi bi-printer me-1"></i>Print
+            </button>
+          </div>
+          <button type="button" class="btn btn-sm btn-primary">
+            <i class="bi bi-plus-circle me-1"></i>Yeni Ziyaretçi
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-start border-primary border-4 shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col me-2">
+                  <div class="text-xs fw-bold text-primary text-uppercase mb-1">
+                    Bugünkü Ziyaretçiler
+                  </div>
+                  <div class="h5 mb-0 fw-bold">24</div>
+                </div>
+                <div class="col-auto">
+                  <i class="bi bi-people fs-2 text-primary"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-start border-success border-4 shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col me-2">
+                  <div class="text-xs fw-bold text-success text-uppercase mb-1">
+                    Aktif Randevular
+                  </div>
+                  <div class="h5 mb-0 fw-bold">12</div>
+                </div>
+                <div class="col-auto">
+                  <i class="bi bi-calendar-check fs-2 text-success"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-start border-warning border-4 shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col me-2">
+                  <div class="text-xs fw-bold text-warning text-uppercase mb-1">
+                    Bekleyen Onaylar
+                  </div>
+                  <div class="h5 mb-0 fw-bold">5</div>
+                </div>
+                <div class="col-auto">
+                  <i class="bi bi-hourglass-split fs-2 text-warning"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-start border-danger border-4 shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col me-2">
+                  <div class="text-xs fw-bold text-danger text-uppercase mb-1">
+                    Kara Listede
+                  </div>
+                  <div class="h5 mb-0 fw-bold">3</div>
+                </div>
+                <div class="col-auto">
+                  <i class="bi bi-person-x fs-2 text-danger"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Visitors -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 fw-bold text-primary">
+            <i class="bi bi-clock-history me-2"></i>Son Ziyaretçiler
+          </h6>
+          <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="bi bi-three-dots-vertical"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Tümünü Görüntüle</a></li>
+              <li><a class="dropdown-item" href="#">Excel'e Aktar</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Filtrele</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Ziyaretçi</th>
+                  <th>Ziyaret Nedeni</th>
+                  <th>Ziyaret Edilen</th>
+                  <th>Giriş</th>
+                  <th>Çıkış</th>
+                  <th>Durum</th>
+                  <th>İşlem</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img src="https://via.placeholder.com/40" class="rounded-circle me-3" width="32" height="32">
+                      <div>
+                        <div class="fw-bold">Ahmet Yılmaz</div>
+                        <div class="text-muted small">ahmet@example.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>İş Görüşmesi</td>
+                  <td>İnsan Kaynakları</td>
+                  <td>10:15</td>
+                  <td>11:30</td>
+                  <td><span class="badge bg-success">Tamamlandı</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img src="https://via.placeholder.com/40" class="rounded-circle me-3" width="32" height="32">
+                      <div>
+                        <div class="fw-bold">Ayşe Kaya</div>
+                        <div class="text-muted small">ayse@example.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Toplantı</td>
+                  <td>Satış Departmanı</td>
+                  <td>13:45</td>
+                  <td>-</td>
+                  <td><span class="badge bg-warning">Devam Ediyor</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img src="https://via.placeholder.com/40" class="rounded-circle me-3" width="32" height="32">
+                      <div>
+                        <div class="fw-bold">Mehmet Demir</div>
+                        <div class="text-muted small">mehmet@example.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Teknik Destek</td>
+                  <td>IT Departmanı</td>
+                  <td>09:30</td>
+                  <td>10:45</td>
+                  <td><span class="badge bg-success">Tamamlandı</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <img src="https://via.placeholder.com/40" class="rounded-circle me-3" width="32" height="32">
+                      <div>
+                        <div class="fw-bold">Zeynep Şahin</div>
+                        <div class="text-muted small">zeynep@example.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Eğitim</td>
+                  <td>Eğitim Departmanı</td>
+                  <td>14:00</td>
+                  <td>-</td>
+                  <td><span class="badge bg-info">Beklemede</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upcoming Appointments -->
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="card shadow">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 fw-bold text-success">
+                <i class="bi bi-calendar2-event me-2"></i>Yaklaşan Randevular
+              </h6>
+              <a href="/admin/appointments" class="btn btn-sm btn-outline-success">Tümünü Gör</a>
+            </div>
+            <div class="card-body">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h6 class="mb-1 fw-bold">Ahmet Yılmaz - Teknik Görüşme</h6>
+                    <small class="text-success">Yarın, 10:00</small>
+                  </div>
+                  <p class="mb-1 small">IT Departmanı - 2. Kat, Oda 204</p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h6 class="mb-1 fw-bold">ABC Şirketi - Satış Sunumu</h6>
+                    <small class="text-success">Yarın, 14:30</small>
+                  </div>
+                  <p class="mb-1 small">Toplantı Salonu A</p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h6 class="mb-1 fw-bold">Deniz Arıkan - İş Başvurusu</h6>
+                    <small>2 gün sonra, 11:15</small>
+                  </div>
+                  <p class="mb-1 small">İnsan Kaynakları - 1. Kat, Oda 101</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="col-lg-6 mb-4">
+          <div class="card shadow">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 fw-bold text-info">
+                <i class="bi bi-activity me-2"></i>Son Aktivite Kayıtları
+              </h6>
+              <a href="/admin/activities" class="btn btn-sm btn-outline-info">Tümünü Gör</a>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush activity-feed">
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <i class="bi bi-person-check text-success"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <p class="mb-1 fw-bold">Yeni ziyaretçi kaydedildi</p>
+                      <small class="text-muted">Mehmet Demir - 10 dakika önce</small>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <i class="bi bi-door-open text-primary"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <p class="mb-1 fw-bold">Ziyaretçi girişi yapıldı</p>
+                      <small class="text-muted">Ayşe Kaya - 1 saat önce</small>
+                    </div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <div class="flex-shrink-0">
+                      <i class="bi bi-door-closed text-warning"></i>
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                      <p class="mb-1 fw-bold">Ziyaretçi çıkışı yapıldı</p>
+                      <small class="text-muted">Ahmet Yılmaz - 2 saat önce</small>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<style>
+  /* Özel Admin Stilleri */
+  .sidebar {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    margin: 0.25rem 0.5rem;
+  }
+  
+  .sidebar .nav-link.active {
+    color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.1);
+  }
+  
+  .sidebar .nav-link:hover:not(.active) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .sidebar-heading {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  
+  .sidebar-search {
+    padding: 0.5rem 0;
+  }
+  
+  main {
+    margin-top: 56px;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 0.5rem;
+  }
+  
+  .activity-feed .list-group-item {
+    border-left: 0;
+    border-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .activity-feed .list-group-item:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  
+  .activity-feed .list-group-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+</style>
+
+<script>
+  // Dashboard interaktif öğeler için basit JavaScript
+  document.addEventListener('DOMContentLoaded', function() {
+    // Tüm dropdown menüleri aktif etme
+    var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+    var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+      return new bootstrap.Dropdown(dropdownToggleEl)
+    });
+    
+    // Sidebar toggle (mobile için)
+    document.querySelector('.navbar-toggler').addEventListener('click', function() {
+      document.querySelector('.sidebar').classList.toggle('show');
+    });
+    
+    // Tablo satırı tıklanabilir yapma
+    document.querySelectorAll('.table-hover tbody tr').forEach(row => {
+      row.addEventListener('click', function() {
+        window.location.href = '/admin/visitor/' + this.getAttribute('data-id');
+      });
+    });
+  });
+</script>
+{% endblock %}

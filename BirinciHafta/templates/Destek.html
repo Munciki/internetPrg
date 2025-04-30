@@ -1,0 +1,462 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="support-hero bg-gradient-dark py-6">
+  <div class="container py-5">
+    <div class="row align-items-center">
+      <div class="col-lg-6 text-center text-lg-start">
+        <h1 class="display-4 fw-bold text-white mb-4">Teknik Destek Merkezi</h1>
+        <p class="lead text-white-50 mb-4">Sorunlarınız için hızlı çözümler bulun. Uzman ekibimiz 7/24 yanınızda.</p>
+        <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+          <a href="#submit-ticket" class="btn btn-primary btn-lg px-4 rounded-pill">
+            <i class="bi bi-ticket-detailed me-2"></i>Destek Talebi Oluştur
+          </a>
+          <a href="#solutions" class="btn btn-outline-light btn-lg px-4 rounded-pill">
+            <i class="bi bi-lightbulb me-2"></i>Hızlı Çözümler
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <img src="https://cdn-icons-png.flaticon.com/512/2452/2452499.png" alt="Support Illustration" class="img-fluid pulse-animation" style="max-height: 300px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Actions -->
+<section class="bg-light py-4 border-bottom">
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-md-4">
+        <a href="#knowledge-base" class="card card-hover h-100 border-0 text-decoration-none">
+          <div class="card-body text-center py-4">
+            <i class="bi bi-journal-bookmark-fill text-primary fs-1 mb-3"></i>
+            <h5 class="fw-bold mb-0">Bilgi Bankası</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#faq" class="card card-hover h-100 border-0 text-decoration-none">
+          <div class="card-body text-center py-4">
+            <i class="bi bi-question-circle-fill text-success fs-1 mb-3"></i>
+            <h5 class="fw-bold mb-0">SSS</h5>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="#live-chat" class="card card-hover h-100 border-0 text-decoration-none">
+          <div class="card-body text-center py-4">
+            <i class="bi bi-chat-left-text-fill text-info fs-1 mb-3"></i>
+            <h5 class="fw-bold mb-0">Canlı Destek</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Knowledge Base Section -->
+<section id="knowledge-base" class="py-5">
+  <div class="container py-4">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h2 class="fw-bold mb-3">Bilgi Bankası</h2>
+        <p class="lead text-muted">Sık karşılaşılan sorunlar için hazır çözümler</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-hover h-100 border-0 shadow-sm rounded-3">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div class="bg-primary bg-opacity-10 text-primary p-2 rounded me-3">
+                <i class="bi bi-laptop fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Sistem Gereksinimleri</h5>
+            </div>
+            <p class="text-muted">Uygulamamızın çalışması için gerekli minimum sistem özellikleri.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary stretched-link">Detayları Gör</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-hover h-100 border-0 shadow-sm rounded-3">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div class="bg-success bg-opacity-10 text-success p-2 rounded me-3">
+                <i class="bi bi-phone fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Mobil Uygulama</h5>
+            </div>
+            <p class="text-muted">Mobil uygulama kullanım kılavuzu ve sık sorulan sorular.</p>
+            <a href="#" class="btn btn-sm btn-outline-success stretched-link">Detayları Gör</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-hover h-100 border-0 shadow-sm rounded-3">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div class="bg-warning bg-opacity-10 text-warning p-2 rounded me-3">
+                <i class="bi bi-shield-lock fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Güvenlik Rehberi</h5>
+            </div>
+            <p class="text-muted">Hesap güvenliğinizi sağlamak için yapmanız gerekenler.</p>
+            <a href="#" class="btn btn-sm btn-outline-warning stretched-link">Detayları Gör</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-hover h-100 border-0 shadow-sm rounded-3">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div class="bg-info bg-opacity-10 text-info p-2 rounded me-3">
+                <i class="bi bi-credit-card fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Ödeme Sistemleri</h5>
+            </div>
+            <p class="text-muted">Ödeme yöntemleri ve sorun çözme rehberi.</p>
+            <a href="#" class="btn btn-sm btn-outline-info stretched-link">Detayları Gör</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-hover h-100 border-0 shadow-sm rounded-3">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div class="bg-danger bg-opacity-10 text-danger p-2 rounded me-3">
+                <i class="bi bi-database fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Veri Yönetimi</h5>
+            </div>
+            <p class="text-muted">Veri aktarımı ve yedekleme işlemleri.</p>
+            <a href="#" class="btn btn-sm btn-outline-danger stretched-link">Detayları Gör</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card card-hover h-100 border-0 shadow-sm rounded-3">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <div class="bg-purple bg-opacity-10 text-purple p-2 rounded me-3">
+                <i class="bi bi-graph-up fs-4"></i>
+              </div>
+              <h5 class="fw-bold mb-0">Raporlama</h5>
+            </div>
+            <p class="text-muted">Rapor oluşturma ve analiz kılavuzu.</p>
+            <a href="#" class="btn btn-sm btn-outline-purple stretched-link">Detayları Gör</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <a href="#" class="btn btn-primary px-4">
+        <i class="bi bi-search me-2"></i>Tüm Kategorileri Görüntüle
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Support Ticket Form -->
+<section id="submit-ticket" class="py-5 bg-light">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow rounded-4 overflow-hidden">
+          <div class="card-header bg-primary text-white py-3">
+            <h3 class="mb-0"><i class="bi bi-ticket-detailed me-2"></i>Yeni Destek Talebi</h3>
+          </div>
+          <div class="card-body p-4">
+            <form id="supportForm" class="needs-validation" novalidate>
+              <div class="mb-4">
+                <label for="ticketSubject" class="form-label">Konu <span class="text-danger">*</span></label>
+                <input type="text" class="form-control py-3" id="ticketSubject" required>
+                <div class="invalid-feedback">Lütfen konu giriniz.</div>
+              </div>
+              
+              <div class="row mb-4">
+                <div class="col-md-6">
+                  <label for="ticketCategory" class="form-label">Kategori <span class="text-danger">*</span></label>
+                  <select class="form-select py-3" id="ticketCategory" required>
+                    <option value="" selected disabled>Seçiniz</option>
+                    <option value="technical">Teknik Sorun</option>
+                    <option value="billing">Fatura/Ödeme</option>
+                    <option value="account">Hesap Yönetimi</option>
+                    <option value="feature">Özellik Talebi</option>
+                    <option value="other">Diğer</option>
+                  </select>
+                  <div class="invalid-feedback">Lütfen kategori seçiniz.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="ticketPriority" class="form-label">Öncelik <span class="text-danger">*</span></label>
+                  <select class="form-select py-3" id="ticketPriority" required>
+                    <option value="" selected disabled>Seçiniz</option>
+                    <option value="low">Düşük</option>
+                    <option value="medium">Orta</option>
+                    <option value="high">Yüksek</option>
+                    <option value="critical">Kritik</option>
+                  </select>
+                  <div class="invalid-feedback">Lütfen öncelik seçiniz.</div>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <label for="ticketDescription" class="form-label">Açıklama <span class="text-danger">*</span></label>
+                <textarea class="form-control py-3" id="ticketDescription" rows="5" required></textarea>
+                <div class="invalid-feedback">Lütfen sorununuzu detaylı açıklayınız.</div>
+                <div class="form-text">Sorununuzu mümkün olduğunca detaylı açıklayın. Hata mesajları, ekran görüntüleri vb. ekleyin.</div>
+              </div>
+              
+              <div class="mb-4">
+                <label for="ticketAttachments" class="form-label">Ekler (Opsiyonel)</label>
+                <input class="form-control" type="file" id="ticketAttachments" multiple>
+                <div class="form-text">Maksimum 5 dosya, her biri 5MB'tan küçük olmalıdır (jpg, png, pdf, docx).</div>
+              </div>
+              
+              <div class="d-grid">
+                <button class="btn btn-primary btn-lg py-3" type="submit">
+                  <i class="bi bi-send-fill me-2"></i>Talep Gönder
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-5">
+  <div class="container py-4">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h2 class="fw-bold mb-3">Sıkça Sorulan Sorular</h2>
+        <p class="lead text-muted">Hızlı yanıtlar için aşağıdaki SSS bölümünü inceleyin</p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="accordion custom-accordion" id="supportFaq">
+          <div class="accordion-item shadow-sm mb-3 border-0 rounded-3 overflow-hidden">
+            <h3 class="accordion-header" id="faqHeading1">
+              <button class="accordion-button fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true" aria-controls="faqCollapse1">
+                <i class="bi bi-question-circle text-primary me-2"></i>
+                Destek talebime ne zaman yanıt alırım?
+              </button>
+            </h3>
+            <div id="faqCollapse1" class="accordion-collapse collapse show" aria-labelledby="faqHeading1" data-bs-parent="#supportFaq">
+              <div class="accordion-body">
+                <p>Destek taleplerinize öncelik durumuna göre yanıt verilmektedir:</p>
+                <ul class="mb-0">
+                  <li><strong>Kritik:</strong> 1 saat içinde</li>
+                  <li><strong>Yüksek:</strong> 4 saat içinde</li>
+                  <li><strong>Orta:</strong> 24 saat içinde</li>
+                  <li><strong>Düşük:</strong> 3 iş günü içinde</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item shadow-sm mb-3 border-0 rounded-3 overflow-hidden">
+            <h3 class="accordion-header" id="faqHeading2">
+              <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                <i class="bi bi-question-circle text-primary me-2"></i>
+                Talebimin durumunu nasıl takip ederim?
+              </button>
+            </h3>
+            <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#supportFaq">
+              <div class="accordion-body">
+                <p>Tüm destek talepleriniz "Hesabım > Destek Taleplerim" bölümünden takip edilebilir. Ayrıca, talebinizde her güncelleme olduğunda size e-posta bildirimi gönderilir.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item shadow-sm mb-3 border-0 rounded-3 overflow-hidden">
+            <h3 class="accordion-header" id="faqHeading3">
+              <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                <i class="bi bi-question-circle text-primary me-2"></i>
+                Canlı destek hizmetiniz var mı?
+              </button>
+            </h3>
+            <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#supportFaq">
+              <div class="accordion-body">
+                <p>Evet, canlı destek hizmetimiz hafta içi 09:00-18:00 saatleri arasında hizmet vermektedir. Canlı desteğe ulaşmak için <a href="#live-chat">buraya tıklayabilirsiniz</a>.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item shadow-sm border-0 rounded-3 overflow-hidden">
+            <h3 class="accordion-header" id="faqHeading4">
+              <button class="accordion-button collapsed fw-bold py-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                <i class="bi bi-question-circle text-primary me-2"></i>
+                Sistem kesintisi durumunda nasıl bilgi alabilirim?
+              </button>
+            </h3>
+            <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#supportFaq">
+              <div class="accordion-body">
+                <p>Sistem kesintileri ve bakım çalışmaları hakkında güncel bilgileri <a href="#">Durum Sayfamızdan</a> takip edebilirsiniz. Ayrıca büyük kesintilerde e-posta bildirimi gönderilmektedir.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live Chat Section -->
+<section id="live-chat" class="py-5 bg-dark text-white">
+  <div class="container py-4">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+        <h2 class="fw-bold mb-3">Canlı Destek</h2>
+        <p class="lead mb-4">Uzman destek ekibimizle anında iletişime geçin.</p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+          <div class="d-flex align-items-center">
+            <div class="bg-success rounded-circle p-2 me-2">
+              <i class="bi bi-check-lg"></i>
+            </div>
+            <span>7/24 Hizmet</span>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="bg-success rounded-circle p-2 me-2">
+              <i class="bi bi-check-lg"></i>
+            </div>
+            <span>Ortalama 2 dk. yanıt süresi</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card bg-white text-dark shadow-lg rounded-3 overflow-hidden">
+          <div class="card-header bg-primary text-white py-3">
+            <h4 class="mb-0"><i class="bi bi-chat-left-text me-2"></i>Canlı Sohbet</h4>
+          </div>
+          <div class="card-body p-4">
+            <div class="text-center py-4">
+              <i class="bi bi-headset text-primary" style="font-size: 3rem;"></i>
+              <h5 class="my-3">Canlı desteğe bağlan</h5>
+              <p class="text-muted">Bir temsilciyle sohbet başlatmak için aşağıdaki butona tıklayın.</p>
+              <button class="btn btn-primary btn-lg px-4">
+                <i class="bi bi-chat-square-text me-2"></i>Sohbeti Başlat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Status Page -->
+<section class="py-5 bg-light">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+          <div class="card-body p-4 p-md-5">
+            <i class="bi bi-heart-pulse text-danger" style="font-size: 3rem;"></i>
+            <h2 class="fw-bold my-3">Sistem Durumu</h2>
+            <p class="lead text-muted mb-4">Tüm sistemlerimiz çalışıyor.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
+              <div class="badge bg-success bg-opacity-10 text-success py-2 px-3 rounded-pill">
+                <i class="bi bi-check-circle-fill me-1"></i>Web Uygulaması
+              </div>
+              <div class="badge bg-success bg-opacity-10 text-success py-2 px-3 rounded-pill">
+                <i class="bi bi-check-circle-fill me-1"></i>Mobil Uygulama
+              </div>
+              <div class="badge bg-success bg-opacity-10 text-success py-2 px-3 rounded-pill">
+                <i class="bi bi-check-circle-fill me-1"></i>API Servisleri
+              </div>
+              <div class="badge bg-success bg-opacity-10 text-success py-2 px-3 rounded-pill">
+                <i class="bi bi-check-circle-fill me-1"></i>Veritabanı
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline-secondary">
+              <i class="bi bi-arrow-right-circle me-2"></i>Detaylı Durum Raporu
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Özel Stiller */
+  .support-hero {
+    background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+  }
+  
+  .pulse-animation {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  }
+  
+  .bg-purple {
+    background-color: #6f42c1;
+  }
+  
+  .text-purple {
+    color: #6f42c1;
+  }
+  
+  .btn-outline-purple {
+    color: #6f42c1;
+    border-color: #6f42c1;
+  }
+  
+  .btn-outline-purple:hover {
+    color: #fff;
+    background-color: #6f42c1;
+  }
+  
+  .custom-accordion .accordion-button:not(.collapsed) {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+  }
+  
+  .rounded-3 {
+    border-radius: 0.75rem !important;
+  }
+</style>
+
+<script>
+  // Form Validation
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      var form = document.getElementById('supportForm');
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    }, false);
+  })();
+  
+  // Live Chat Button
+  document.querySelector('#live-chat button').addEventListener('click', function() {
+    alert('Canlı destek temsilcimizle bağlantı kuruluyor...');
+    // Burada gerçek bir sohbet sistemi entegrasyonu yapılabilir
+  });
+</script>
+{% endblock %}

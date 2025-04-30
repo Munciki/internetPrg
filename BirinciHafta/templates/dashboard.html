@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4">Hoş Geldiniz,Admin</h1>
+            
+            <!-- İstatistik Kartları -->
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body">
+                            <h5 class="card-title">Toplam Ziyaretci</h5>
+                            <h2 class="display-4">24.000.000</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h5 class="card-title">Bu Ayki Ziyaretci</h5>
+                            <h2 class="display-4">800.000</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-info text-white">
+                        <div class="card-body">
+                            <h5 class="card-title">Son Ziyaretler</h5>
+                            <h2 class="display-4">5 sn önce</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body">
+                            <h5 class="card-title">Ortalama Ziyaretciler</h5>
+                            <h2 class="display-4">98000/saat</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Ziyaret Yorumlar</h2>
+                <a href="{{ url_for('yorum_yap') }}" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Yeni Yorum Ekle
+                </a>
+            </div>
+
+            <div class="row">
+                <!-- Örnek Günlük 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Rabia Yaşa Koştaş</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">23/04/2025</h6>
+                            <p class="card-text">Bugün Fransayi Ziyaret Ettim. Sabah erken kalktım ve güneşin doğuşunu izledim. Ardından yeni bir kafe keşfettim...</p>
+                            <span class="badge bg-primary">Kişisel</span>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-pencil"></i> Düzenle
+                                </a>
+                                <a href="#" class="btn btn-outline-danger btn-sm">
+                                    <i class="bi bi-trash"></i> Sil
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Örnek Günlük 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Elon Musk</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">16/04/2024</h6>
+                            <p class="card-text">X' Kesinlikle daha iyi...</p>
+                            <span class="badge bg-success">İş</span>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-pencil"></i> Düzenle
+                                </a>
+                                <a href="#" class="btn btn-outline-danger btn-sm">
+                                    <i class="bi bi-trash"></i> Sil
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Örnek Günlük 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Shou</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">15/04/2024</h6>
+                            <p class="card-text">Hafta sonu ailemle birlikte pikniğe gittik. Çocuklar çok eğlendi,Bu ziyaretçi sitesine bayiliyorum...</p>
+                            <span class="badge bg-info">Aile</span>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-pencil"></i> Düzenle
+                                </a>
+                                <a href="#" class="btn btn-outline-danger btn-sm">
+                                    <i class="bi bi-trash"></i> Sil
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

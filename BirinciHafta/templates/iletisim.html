@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <!-- Başlık -->
+        <div class="col-12 text-center mb-5">
+            <h1 class="display-4">İletişim</h1>
+            <p class="lead">Bize ulaşmak için aşağıdaki bilgileri kullanabilir veya iletişim formunu doldurabilirsiniz.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- İletişim Formu -->
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow">
+                <div class="card-body p-4">
+                    <h3 class="card-title mb-4"><i class="bi bi-envelope-fill text-primary me-2"></i>Mesaj Gönder</h3>
+                    
+                    <form action="/iletisim-gonder" method="POST">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Adınız Soyadınız</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-posta Adresiniz</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Telefon (Opsiyonel)</label>
+                            <input type="tel" class="form-control" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Mesajınız</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100 py-2">
+                            <i class="bi bi-send-fill me-2"></i>Gönder
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- İletişim Bilgileri -->
+        <div class="col-lg-6">
+            <div class="card shadow">
+                <div class="card-body p-4">
+                    <h3 class="card-title mb-4"><i class="bi bi-info-circle-fill text-success me-2"></i>İletişim Bilgileri</h3>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-geo-alt-fill fs-4 text-danger me-3"></i>
+                        <div>
+                            <h5>Adres</h5>
+                            <p class="mb-0">Gümüşhane Üniversitesi, Merkez Kampüs<br>29000 Gümüşhane/Türkiye</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-telephone-fill fs-4 text-primary me-3"></i>
+                        <div>
+                            <h5>Telefon</h5>
+                            <p class="mb-0">
+                                <a href="tel:+904562331234" class="text-decoration-none">+90 (456) 233 1234</a><br>
+                                <small>Pazartesi-Cuma 09:00-17:00</small>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-envelope-fill fs-4 text-warning me-3"></i>
+                        <div>
+                            <h5>E-posta</h5>
+                            <p class="mb-0">
+                                <a href="mailto:iletisim@gumushane.edu.tr" class="text-decoration-none">iletisim@gumushane.edu.tr</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start">
+                        <i class="bi bi-clock-fill fs-4 text-info me-3"></i>
+                        <div>
+                            <h5>Çalışma Saatleri</h5>
+                            <p class="mb-0">
+                                Hafta İçi: 08:30 - 17:30<br>
+                                Hafta Sonu: Kapalı
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <h5 class="mb-3">Sosyal Medya</h5>
+                    <div class="d-flex">
+                        <a href="https://www.facebook.com/gumushaneuni" target="_blank" class="btn btn-outline-primary me-2">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://twitter.com/gumushaneuni" target="_blank" class="btn btn-outline-info me-2">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/gumushaneuni" target="_blank" class="btn btn-outline-danger me-2">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@gumushaneuni" target="_blank" class="btn btn-outline-danger">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Harita -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-body p-0">
+                    <iframe             
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.245041820924!2d39.45678931540793!3d40.45924697932538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI3JzMzLjMiTiAzOcKwMjcnMzMuOSJF!5e0!3m2!1str!2str!4v1623256789012!5m2!1str!2str" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        class="rounded-bottom"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

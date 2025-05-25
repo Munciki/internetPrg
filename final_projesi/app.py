@@ -4,7 +4,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from sqlalchemy import null
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
-import re
+import re,os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'gelistirme_anahtari' #session bilgilerini tarayacıda tutmak icin

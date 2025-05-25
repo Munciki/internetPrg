@@ -1,0 +1,13 @@
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #f8faf8;
+        }
+        .auth-buttons {
+            margin-left: auto;
+        }

@@ -292,6 +292,6 @@ def kufur_var_mi(metin):
         if kufur in temiz_metin:
             return True
     return False
- 
+
 if _name_ == "_main_":
  app.run(host="0.0.0.0",port=int(os.environ.get("PORT",5000)))

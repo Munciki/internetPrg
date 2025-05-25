@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Yorum Düzenle</h2>
+    <form method="POST" action="{{ url_for('yorum_duzenle', yorum_id=yorum.id) }}">
+        <div class="mb-3">
+            <label for="baslik" class="form-label">Başlık</label>
+            <input type="text" class="form-control" id="baslik" name="baslik" value="{{ yorum.baslik }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="icerik" class="form-label">İçerik</label>
+            <textarea class="form-control" id="icerik" name="icerik" rows="5" required>{{ yorum.icerik }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="kategori" class="form-label">Kategori</label>
+            <select class="form-control" id="kategori" name="kategori" required>
+                <option value="Kişisel" {% if yorum.kategori == 'Kişisel' %}selected{% endif %}>Kişisel</option>
+                <option value="İş" {% if yorum.kategori == 'İş' %}selected{% endif %}>İş</option>
+                <option value="Aile" {% if yorum.kategori == 'Aile' %}selected{% endif %}>Aile</option>
+                <option value="Seyahat" {% if yorum.kategori == 'Seyahat' %}selected{% endif %}>Seyahat</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Yorumu Güncelle</button>
+    </form>
+</div>
+{% endblock %}

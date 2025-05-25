@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+        <h1 class="display-4 mb-4">Gümüşhane Ziyaretçi Uygulamasına Hoş Geldiniz</h1>
+        <p class="lead mb-4">Ziyaretçi girişi yapın, anın tadını çıkarın. Hayatınızın önemli anlarını kaydedin.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/register" class="btn btn-success btn-lg px-4 gap-3">Hemen Başla</a>
+            <a href="/login" class="btn btn-outline-secondary btn-lg px-4">Giriş Yap</a>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <!-- Kart 1 -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="bi bi-pencil-square display-4 text-danger mb-3"></i>
+                <h3>Ziyaretçi Girişi</h3>
+                <p>Ziyaretçi girişi oluşturunuz.</p>
+                <a href="{{ url_for('register') }}" class="btn btn-danger mt-2">Hemen Oluştur</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kart 2 -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="bi bi-calendar-check display-4 text-success mb-3"></i>
+                <h3>Ziyaret Takip</h3>
+                <p>Günlük ziyaret ettiğiniz yeri kayıt alınız.</p>
+                <a href="{{ url_for('register') }}" class="btn btn-success mt-2">Ziyaret Takip</a>    
+            </div>
+        </div>
+    </div>
+
+    <!-- Kart 3 -->
+    <div class="col-md-4">
+        <div class="card" style="min-height: 75px;"> 
+            <div class="card-body text-center" style="padding: 30px;"> 
+                <i class="fa fa-dragon" style="color: #FF5733; font-size: 50px;"></i>
+                <h3 class="mt-1">Admin</h3>
+                <p>Admin giriş sistemi</p>
+                <a href="{{ url_for('admin') }}" class="btn btn mt-2" style="background-color:#FF5733;">Admin Giriş</a>   
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <!-- İletişim -->
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-telephone-fill display-4 text-warning mb-3"></i>
+                <h3>İletişim</h3>
+                <p>Bizimle hızlıca iletişime geçmek için bu alanı kullanabilirsiniz.</p>
+                <a href="tel:+905350240461" class="btn btn-warning mt-2">Hemen Ara</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Youtube -->
+    <div class="col-md-4">
+        <div class="card" style="min-height: 250px;">
+            <div class="card-body text-center" style="padding: 30px;">
+                <a href="https://www.youtube.com/@munciki971" target="_blank">
+                    <i class="fab fa-youtube" style="font-size: 50px; color: red;"></i>
+                </a>
+                <h3 class="mt-3">Resmi YouTube Kanalımız</h3>
+                <a href="https://www.youtube.com/@munciki971" target="_blank" class="btn btn-danger mt-3">
+                    Kanalı Ziyaret Et
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yorum -->
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <i class="fa-solid fa-money-bill-wave display-4 mb-3" style="opacity: 1; color: #28a745;"></i>
+                <h3>Yorum Bırak</h3>
+                <p>Görüş ve düşüncelerinizi bizimle paylaşabilirsiniz.</p>
+                <a href="{{ url_for('yorum_ekle') }}" class="btn btn-success mt-2">Git</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FontAwesome Link - Bunu genellikle base.html'e koymak daha doğrudur -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+{% endblock %}

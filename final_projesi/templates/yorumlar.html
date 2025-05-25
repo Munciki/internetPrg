@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+
+    <h1 class="text-center text-primary mb-4">📋 Kullanıcı Yorumları</h1>
+
+    <form method="get" class="mb-4 d-flex justify-content-center">
+        <input type="text" name="kategori" placeholder="Kategoriye göre ara (örn: iş)" class="form-control w-50 me-2" value="{{ kategori or '' }}">
+        <button class="btn btn-outline-primary">Ara</button>
+    </form>
+
+    {% for yorum in yorumlar.items %}
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ yorum.baslik }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    Kategori: <span class="badge bg-info text-dark">{{ yorum.kategori }}</span>
+                </h6>
+                <p class="card-text">{{ yorum.icerik }}</p>
+                <p class="card-text">
+                    <small class="text-muted">Yazan: {{ yorum.kullanici.name }} • {{ yorum.tarih.strftime('%d.%m.%Y %H:%M') }}</small>
+                </p>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-warning text-center">Hiç yorum bulunamadı.</div>
+    {% endfor %}
+
+    <!-- Sayfalama -->
+    <nav aria-label="Yorum sayfaları">
+        <ul class="pagination justify-content-center">
+            {% if yorumlar.has_prev %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('yorumlar', sayfa=yorumlar.prev_num, kategori=kategori) }}">Önceki</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">Önceki</span></li>
+            {% endif %}
+
+            {% for sayfa_num in yorumlar.iter_pages() %}
+                {% if sayfa_num %}
+                    <li class="page-item {% if yorumlar.page == sayfa_num %}active{% endif %}">
+                        <a class="page-link" href="{{ url_for('yorumlar', sayfa=sayfa_num, kategori=kategori) }}">{{ sayfa_num }}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if yorumlar.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('yorumlar', sayfa=yorumlar.next_num, kategori=kategori) }}">Sonraki</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled"><span class="page-link">Sonraki</span></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+</div>
+{% endblock %}
